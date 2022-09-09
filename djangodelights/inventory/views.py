@@ -47,4 +47,3 @@ class MenuItemCreate(CreateView):
     template_name = 'inventory/menu_item_create_form.html'
     fields = ['title', 'price']
 
-    
