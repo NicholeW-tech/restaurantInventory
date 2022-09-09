@@ -16,7 +16,12 @@ class IngredientDelete(DeleteView):
     template_name = 'inventory/ingredient_delete_form.html'
 
 
+class IngredientUpdate(UpdateView):
+    model = Ingredient
+    template_name = 'inventory/ingredient_update_form.html'
+    fields = ['name', 'quantity"', 'unit', 'unit_price']
+
+
 class MenuItemList(ListView):
     model = MenuItem
     template_name = 'inventory/menu_item_list.html'
-
