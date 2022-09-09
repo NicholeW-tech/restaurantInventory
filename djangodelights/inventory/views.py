@@ -67,6 +67,6 @@ class RecipeRequirementCreate(CreateView):
     template_name = 'inventory/recipe_requirement_create'
 
 
-class PurchaseView(ListView):
+class PurchaseList(ListView):
     model = Purchase
     template_name = 'inventory/purchase_view'
