@@ -37,4 +37,9 @@ class MenuItemDelete(DeleteView):
     model = MenuItem
     template_name = 'inventory/menu_item_delete_form.html'
 
+class MenuItemUpdate(UpdateView):
+    model = MenuItem
+    template_name = 'inventory/menu_item_update_form.html'
+    fields = ['title', 'price']
+
     
