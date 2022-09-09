@@ -8,3 +8,4 @@ from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 class IngredientList(ListView):
     model = Ingredient
     template_name = 'inventory/ingredient_list.html'
+
