@@ -65,3 +65,8 @@ class RecipeRequirementUpdate(UpdateView):
 class RecipeRequirementCreate(CreateView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_create'
+
+
+class PurchaseView(ListView):
+    model = Purchase
+    template_name = 'inventory/purchase_view'
