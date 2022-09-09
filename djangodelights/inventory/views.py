@@ -47,3 +47,7 @@ class MenuItemCreate(CreateView):
     template_name = 'inventory/menu_item_create_form.html'
     fields = ['title', 'price']
 
+class RecipeRequirementList(ListView):
+    model = RecipeRequirement
+    template_name = 'inventory/recipe_requirment_list'
+    
