@@ -31,4 +31,7 @@ class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     time_stamp = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'menu item={self.menu_item.__str__()}; timestamp={self.time_stamp};'
+
 
