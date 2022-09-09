@@ -31,3 +31,10 @@ class IngredientCreate(CreateView):
 class MenuItemList(ListView):
     model = MenuItem
     template_name = 'inventory/menu_item_list.html'
+
+
+class MenuItemDelete(DeleteView):
+    model = MenuItem
+    template_name = 'inventory/menu_item_delete_form.html'
+
+    
