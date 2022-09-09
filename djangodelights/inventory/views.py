@@ -70,3 +70,8 @@ class RecipeRequirementCreate(CreateView):
 class PurchaseList(ListView):
     model = Purchase
     template_name = 'inventory/purchase_view'
+
+
+class PurchaseDelete(DeleteView):
+    model = Purchase
+    template_name = 'inventory/purchase_delete'
