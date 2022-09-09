@@ -14,3 +14,9 @@ class IngredientList(ListView):
 class IngredientDelete(DeleteView):
     model = Ingredient
     template_name = 'inventory/ingredient_delete_form.html'
+
+
+class MenuItemList(ListView):
+    model = MenuItem
+    template_name = 'inventory/menu_item_list.html'
+
