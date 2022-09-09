@@ -42,4 +42,9 @@ class MenuItemUpdate(UpdateView):
     template_name = 'inventory/menu_item_update_form.html'
     fields = ['title', 'price']
 
+class MenuItemCreate(CreateView):
+    model = MenuItem
+    template_name = 'inventory/menu_item_create_form.html'
+    fields = ['title', 'price']
+
     
