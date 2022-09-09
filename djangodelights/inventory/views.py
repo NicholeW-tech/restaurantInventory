@@ -75,3 +75,10 @@ class PurchaseList(ListView):
 class PurchaseDelete(DeleteView):
     model = Purchase
     template_name = 'inventory/purchase_delete'
+
+
+class PurchaseUpdate(UpdateView):
+    model = Purchase
+    template_name = 'inventory/purchase_update'
+    fields = ['menu_item', 'time_stamp']
+
