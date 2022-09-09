@@ -56,4 +56,3 @@ class RecipeRequirementDelete(DeleteView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_delete'
 
-    
