@@ -56,3 +56,12 @@ class RecipeRequirementDelete(DeleteView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_delete'
 
+
+class RecipeRequirementUpdate(UpdateView):
+    model = RecipeRequirement
+    template_name = 'inventory/recipe_requirement_update'
+
+
+class RecipeRequirementCreate(CreateView):
+    model = RecipeRequirement
+    template_name = 'inventory/recipe_requirement_create'
