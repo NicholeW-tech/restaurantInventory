@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea/
-.inventory_env
+.inventoryenv
 # C extensions
 *.so
 
