@@ -82,3 +82,10 @@ class PurchaseUpdate(UpdateView):
     template_name = 'inventory/purchase_update'
     fields = ['menu_item', 'time_stamp']
 
+
+class PurchaseCreate(CreateView):
+    model = Purchase
+    template_name = 'inventory/purchase_create'
+    fields = ['menu_item', 'time_stamp']
+
+
