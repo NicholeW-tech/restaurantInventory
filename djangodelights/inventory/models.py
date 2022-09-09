@@ -9,7 +9,7 @@ class Ingredient(models.Model):
     unit_price = models.FloatField(default=0)
 
     def __str__(self):
-        return f'name={self.name} qty={self.quantity} unit={self.unit} unit_price={self.price_per_unit}'
+        return f'name={self.name}; qty={self.quantity}; unit={self.unit}; unit_price={self.price_per_unit};'
 
 
 class MenuItem(models.Model):
@@ -24,7 +24,11 @@ class RecipeRequirement(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.FloatField(default=0)
 
+    def __str__(self):
+        return f'menu item={self.menu_item.__str__()}; ingredient={self.ingredient}; quantity={self.quantity};'
+
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     time_stamp = models.DateTimeField(auto_now_add=True)
+
 
