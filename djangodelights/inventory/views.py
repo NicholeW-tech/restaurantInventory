@@ -50,3 +50,10 @@ class MenuItemCreate(CreateView):
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirment_list'
+
+
+class RecipeRequirementDelete(DeleteView):
+    model = RecipeRequirement
+    template_name = 'inventory/recipe_requirement_delete'
+
+    
