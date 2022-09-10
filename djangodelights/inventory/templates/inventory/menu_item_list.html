@@ -5,26 +5,22 @@
 {% endblock %}
 {% block content %}
     <h2>Ingredients</h2>
-    <a href="# ">Add New Ingredient to Inventory</a>
+    <a href="# ">Add New Item to Menu</a>
     <hr/>
     <table class="inventory-table">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-                <th>Unit Price</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
-        {% for ingredient in object_list %}
+        {% for menu_item in object_list %}
             <tr>
                 <td>
-                    <a href="#">{{ ingredient.name }}</a>
+                    <a href="#">{{ menu_item.title }}</a>
                 </td>
-                <td>{{ ingredient.quantity }}</td>
-                <td>{{ ingredient.unit }}</td>
-                <td class="price">${{ ingredient.unit_price|stringformat:".2f" }}</td>
+                <td class="price">${{ menu_item.price|stringformat:".2f" }}</td>
             </tr>
         {% endfor %}
         </tbody>
