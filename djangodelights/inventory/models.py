@@ -11,16 +11,19 @@ class Ingredient(models.Model):
     def __str__(self):
         return f'name={self.name}; qty={self.quantity}; unit={self.unit}; unit_price={self.unit_price};'
 
+    def get_absolute_url(self):
+        return './list'
+
 
 class MenuItem(models.Model):
     title = models.CharField(max_length=200, unique=True)
     price = models.FloatField(default=0.00)
 
     def __str__(self):
-        return f"title={self.title}; price={self.price}"
+        return f'title={self.title}; price={self.price}'
 
     def get_absolute_url(self):
-        return "./list"
+        return './list'
 
 class RecipeRequirement(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
