@@ -4,23 +4,25 @@
 {% block head %}
 {% endblock %}
 {% block content %}
-    <h2>Menu</h2>
-    <a href="# ">Add New Item to Menu</a>
+    <h2>Purchases</h2>
+    <a href="# ">Record a New Purchase</a>
     <hr/>
     <table class="inventory-table">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Menu Item</th>
                 <th>Price</th>
+                <th>Time</th>
             </tr>
         </thead>
         <tbody>
-        {% for menu_item in object_list %}
+        {% for purchase in object_list %}
             <tr>
                 <td>
-                    <a href="#">{{ menu_item.title }}</a>
+                    <a href="#">{{ purchase.menu_item.title }}</a>
                 </td>
-                <td class="price">${{ menu_item.price|stringformat:".2f" }}</td>
+                <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
+                <td>{{ purchase.time_stamp }}</td>
             </tr>
         {% endfor %}
         </tbody>
