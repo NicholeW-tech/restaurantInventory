@@ -17,7 +17,7 @@
             <tr>
                 <td>{{ purchase.menu_item.title }}</td>
                 <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
-                <td>{{ purchase.timestamp }}</td>
+                <td>{{ purchase.time_stamp }}</td>
             </tr>
         {% endfor %}
         </tbody>
