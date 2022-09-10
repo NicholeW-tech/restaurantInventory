@@ -26,7 +26,7 @@ class IngredientUpdate(UpdateView):
 class IngredientCreate(CreateView):
     model = Ingredient
     template_name = 'inventory/ingredient_create_form.html'
-    fields = ['name', 'quantity"', 'unit', 'unit_price']
+    form_class = IngredientForm
 
 
 class MenuItemList(ListView):
