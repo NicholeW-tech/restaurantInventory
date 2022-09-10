@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Django Delights{% endblock %}
+{% block content %}
+
+    <div class="home">
+        <div>
+            <h2>Ingredients</h2>
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                        <th>Unit Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for ingredient in ingredients %}
+                    <tr>
+                        <td>{{ ingredient.name }}</td>
+                        <td>{{ ingredient.quantity }}</td>
+                        <td>{{ ingredient.unit }}</td>
+                        <td class="price">${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
