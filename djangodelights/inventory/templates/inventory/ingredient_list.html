@@ -1,0 +1,32 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block title %}Django Delights{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+    <h2>Ingredients</h2>
+    <a href="# ">Add New Ingredient to Inventory</a>
+    <hr/>
+    <table class="inventory-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Unit Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ingredient in object_list %}
+            <tr>
+                <td>
+                    <a href="#">{{ ingredient.name }}</a>
+                </td>
+                <td>{{ ingredient.quantity }}</td>
+                <td>{{ ingredient.unit }}</td>
+                <td class="price">${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
