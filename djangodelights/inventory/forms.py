@@ -11,3 +11,9 @@ class MenuItemForm(forms.ModelForm):
     class Meta:
         model = MenuItem
         fields = "__all__"
+
+
+class PurchaseForm(forms.ModelForm):
+    class Meta:
+        model = Purchase
+        fields = "__all__"

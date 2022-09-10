@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, TemplateView
 
-from .forms import IngredientForm, MenuItemForm
+from .forms import IngredientForm, MenuItemForm, PurchaseForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.db.models import Sum
@@ -53,44 +53,58 @@ class MenuItemCreate(CreateView):
 
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirment_list'
+    template_name = 'inventory/recipe_requirment_list.html'
 
 
 class RecipeRequirementDelete(DeleteView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirement_delete'
+    template_name = 'inventory/recipe_requirement_delete.html'
 
 
 class RecipeRequirementUpdate(UpdateView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirement_update'
+    template_name = 'inventory/recipe_requirement_update.html'
 
 
 class RecipeRequirementCreate(CreateView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirement_create'
+    template_name = 'inventory/recipe_requirement_create.html'
 
 
 class PurchaseList(ListView):
     model = Purchase
-    template_name = 'inventory/purchase_view'
+    template_name = 'inventory/purchase_view.html'
 
 
 class PurchaseDelete(DeleteView):
     model = Purchase
-    template_name = 'inventory/purchase_delete'
+    template_name = 'inventory/purchase_delete.html'
 
 
 class PurchaseUpdate(UpdateView):
     model = Purchase
-    template_name = 'inventory/purchase_update'
+    template_name = 'inventory/purchase_update.html'
     fields = ['menu_item', 'time_stamp']
 
 
 class PurchaseCreate(CreateView):
     model = Purchase
-    template_name = 'inventory/purchase_create'
-    fields = ['menu_item', 'time_stamp']
+    template_name = 'inventory/purchase_create.html'
+    form_class = PurchaseForm
+
+    def post(self, request):
+        menu_item_id = request.POST["menu_item"]
+        menu_item = MenuItem.objects.get(pk=menu_item_id)
+        requirements = menu_item.reciperequirement_set
+        purchase = Purchase(menu_item=menu_item)
+
+        for requirement in requirements.all():
+            required_ingredient = requirement.ingredient
+            required_ingredient.quantity -= requirement.quantity
+            required_ingredient.save()
+
+        purchase.save()
+        return redirect("purchase_list")
 
 
 class HomeView(TemplateView):
