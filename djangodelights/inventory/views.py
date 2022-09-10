@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic import ListView, TemplateView
 
 from .forms import IngredientForm, MenuItemForm, PurchaseForm
@@ -22,7 +23,8 @@ class IngredientDelete(DeleteView):
 class IngredientUpdate(UpdateView):
     model = Ingredient
     template_name = 'inventory/ingredient_update_form.html'
-    fields = ['name', 'quantity"', 'unit', 'unit_price']
+    form_class = IngredientForm
+    success_url = '/inventory/ingredient/list'
 
 
 class IngredientCreate(CreateView):
@@ -43,7 +45,8 @@ class MenuItemDelete(DeleteView):
 class MenuItemUpdate(UpdateView):
     model = MenuItem
     template_name = 'inventory/menu_item_update_form.html'
-    fields = ['title', 'price']
+    form_class = MenuItemForm
+    success_url = '/inventory/menu_item/list'
 
 class MenuItemCreate(CreateView):
     model = MenuItem
