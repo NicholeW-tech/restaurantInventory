@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
+
+from .forms import IngredientForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.db.models import Sum
