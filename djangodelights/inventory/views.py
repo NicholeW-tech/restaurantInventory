@@ -51,6 +51,8 @@ class MenuItemCreate(CreateView):
     form_class = MenuItemForm
 
 
+
+
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirment_list.html'
