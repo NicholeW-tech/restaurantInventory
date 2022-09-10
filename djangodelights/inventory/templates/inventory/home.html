@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'inventory/base.html' %}
 {% load static %}
 {% block title %}Django Delights{% endblock %}
 {% block content %}
@@ -21,7 +21,7 @@
                         <td>{{ ingredient.name }}</td>
                         <td>{{ ingredient.quantity }}</td>
                         <td>{{ ingredient.unit }}</td>
-                        <td class="price">${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+                        <td class="price">${{ ingredient.unit_price|stringformat:".2f"}}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -29,3 +29,4 @@
         </div>
 
     </div>
+{% endblock %}
