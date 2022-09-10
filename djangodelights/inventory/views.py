@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 
-from .forms import IngredientForm
+from .forms import IngredientForm, MenuItemForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.db.models import Sum
@@ -48,7 +48,8 @@ class MenuItemUpdate(UpdateView):
 class MenuItemCreate(CreateView):
     model = MenuItem
     template_name = 'inventory/menu_item_create_form.html'
-    fields = ['title', 'price']
+    form_class = MenuItemForm
+
 
 class RecipeRequirementList(ListView):
     model = RecipeRequirement

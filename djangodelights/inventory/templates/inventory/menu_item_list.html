@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <h2>Menu</h2>
-    <a href="# ">Add New Item to Menu</a>
+    <a href="{% url 'menu_item_create' %} ">Add New Item to Menu</a>
     <hr/>
     <table class="inventory-table">
         <thead>
@@ -18,7 +18,7 @@
         {% for menu_item in object_list %}
             <tr>
                 <td>
-                    <a href="#">{{ menu_item.title }}</a>
+                    <a href="{% url 'menu_item_update' ingredient.id %}">{{ menu_item.title }}</a>
                 </td>
                 <td class="price">${{ menu_item.price|stringformat:".2f" }}</td>
             </tr>
