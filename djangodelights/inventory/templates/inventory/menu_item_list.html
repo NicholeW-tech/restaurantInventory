@@ -5,13 +5,15 @@
 {% endblock %}
 {% block content %}
     <h2>Menu</h2>
-    <a href="{% url 'menu_item_create' %} ">Add New Item to Menu</a>
+    <a href="{% url 'menu_item_create' %} ">Add New Item to Menu</a><br>
+    <a href="{% url 'recipe_requirement_create' %}">Add an Ingredient to Existing Menu Item</a>
     <hr/>
     <table class="inventory-table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Ingredients</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +23,11 @@
                     <a href="{% url 'menu_item_update' menu_item.id %}">{{ menu_item.title }}</a>
                 </td>
                 <td class="price">${{ menu_item.price|stringformat:".2f" }}</td>
+         <td class="menu-item-ingredients">
+                {% for recipe_requirement in menu_item.reciperequirement_set.all %}
+                <li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}</li>
+                {% endfor %}
+            </td>
             </tr>
         {% endfor %}
         </tbody>

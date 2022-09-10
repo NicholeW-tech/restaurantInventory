@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, TemplateView
 
-from .forms import IngredientForm, MenuItemForm, PurchaseForm
+from .forms import IngredientForm, MenuItemForm, PurchaseForm, RecipeRequirementForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.db.models import Sum
@@ -58,7 +58,7 @@ class MenuItemCreate(CreateView):
 
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirment_list.html'
+    template_name = 'inventory/recipe_requirement_list.html'
 
 
 class RecipeRequirementDelete(DeleteView):
@@ -68,12 +68,14 @@ class RecipeRequirementDelete(DeleteView):
 
 class RecipeRequirementUpdate(UpdateView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirement_update.html'
+    template_name = 'inventory/recipe_requirement_create.html'
 
 
 class RecipeRequirementCreate(CreateView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_create.html'
+    form_class = RecipeRequirementForm
+    success_url = '/inventory/menu_item/list'
 
 
 class PurchaseList(ListView):
