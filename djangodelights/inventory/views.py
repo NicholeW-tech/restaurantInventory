@@ -112,7 +112,7 @@ class ReportView(TemplateView):
         total_cost = 0
         for purchase in Purchase.objects.all():
             for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
-                total_cost += recipe_requirement.ingredient.price_per_unit * \
+                total_cost += recipe_requirement.ingredient.unit_price * \
                     recipe_requirement.quantity
 
         context["revenue"] = revenue
@@ -120,3 +120,4 @@ class ReportView(TemplateView):
         context["profit"] = revenue - total_cost
 
         return context
+

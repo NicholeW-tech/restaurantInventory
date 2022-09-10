@@ -9,7 +9,7 @@ class Ingredient(models.Model):
     unit_price = models.FloatField(default=0.00)
 
     def __str__(self):
-        return f'name={self.name}; qty={self.quantity}; unit={self.unit}; unit_price={self.price_per_unit};'
+        return f'name={self.name}; qty={self.quantity}; unit={self.unit}; unit_price={self.unit_price};'
 
 
 class MenuItem(models.Model):
