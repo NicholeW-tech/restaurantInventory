@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://www.codecademy.com/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="{% static 'inventory/style.css' %}" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>{% block title %}Django Delights{% endblock %}</title>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="app">
+  <header>
+    <div class="header-first-row">
+      <h1 class="title">Django Delights</h1>
+      {% if user.is_authenticated %}
+      <a class="logout" href="/logout">Logout</a>
+      {% endif %}
+    </div>
+    {% if user.is_authenticated %}
+      <p>Hi, {{ user.username }}!</p>
+      <nav class="navbar">
+        {% url 'home' as home_url %}
+        {% url 'ingredients' as ingredients_url %}
+        {% url 'menu' as menu_url %}
+        {% url 'purchases' as purchases_url %}
+        {% url 'reports' as reports_url %}
+        <a class="nav-item{% if request.path == home_url %} current-page{% endif %}" href="{% url 'home' %}">Home</a>
+        <a class="nav-item{% if request.path == ingredients_url %} current-page{% endif %}" href="{% url 'ingredients' %}">Ingredients</a>
+        <a class="nav-item{% if request.path == menu_url %} current-page{% endif %}" href="{% url 'menu' %}">Menu</a>
+        <a class="nav-item{% if request.path == purchases_url %} current-page{% endif %}" href="{% url 'purchases' %}">Purchases</a>
+        <a class="nav-item{% if request.path == reports_url %} current-page{% endif %}" href="{% url 'reports' %}">Reports</a>
+      </nav>
+    {% endif %}
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  </div>
+</body>
+</html>
