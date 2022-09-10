@@ -84,7 +84,7 @@ class PurchaseList(ListView):
 class PurchaseDelete(DeleteView):
     model = Purchase
     template_name = 'inventory/purchase_delete.html'
-
+    success_url = '/inventory/purchase/list'
 
 class PurchaseUpdate(UpdateView):
     model = Purchase
@@ -142,4 +142,5 @@ class ReportView(TemplateView):
         context["profit"] = revenue - total_cost
 
         return context
+
 

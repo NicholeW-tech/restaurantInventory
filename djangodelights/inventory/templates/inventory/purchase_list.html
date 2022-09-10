@@ -19,10 +19,11 @@
         {% for purchase in object_list %}
             <tr>
                 <td>
-                    <a href="#">{{ purchase.menu_item.title }}</a>
+                    {{ purchase.menu_item.title }}
                 </td>
                 <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
                 <td>{{ purchase.time_stamp }}</td>
+                <td><a href="{% url 'purchase_delete' purchase.id%}">Delete Purchase</a></td>
             </tr>
         {% endfor %}
         </tbody>
