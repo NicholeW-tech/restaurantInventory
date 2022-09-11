@@ -33,9 +33,6 @@ def login_view(request):
       return HttpResponse("invalid credentials")
   return render(request, "registration/login.html", context)
 
-# context["ingredients"] = Ingredient.objects.all()
-#         context["menu_items"] = MenuItem.objects.all()
-#         context["purchases"] = Purchase.objects.all()
 
 
 @login_required()
