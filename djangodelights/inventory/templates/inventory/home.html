@@ -24,6 +24,12 @@
                         <td class="price">${{ ingredient.unit_price|stringformat:".2f"}}</td>
                     </tr>
                 {% endfor %}
+                {% for menu_item in menu_items %}
+                    <tr>
+                        <td>{{ menu_item.title }}</td>
+                        <td>{{ menu_item.price|stringformat:".2f" }}</td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>

@@ -1,14 +1,49 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, TemplateView
+from django.contrib.auth import authenticate, logout, login
+from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-from .forms import IngredientForm, MenuItemForm, PurchaseForm, RecipeRequirementForm
+from .forms import IngredientForm, MenuItemForm, PurchaseForm, RecipeRequirementForm, RecipeRequirementUpdateForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.db.models import Sum
 
 
-# Create your views here.
+def logout_view(request):
+  logout(request)
+  return redirect('home')
+
+
+def login_view(request):
+  context = {
+    "login_view": "active"
+  }
+  if request.method == "POST":
+    username = request.POST["username"]
+    password = request.POST["password"]
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+      # Add your code below:
+      login(request, user)
+      return redirect("home")
+    else:
+      return HttpResponse("invalid credentials")
+  return render(request, "registration/login.html", context)
+
+# context["ingredients"] = Ingredient.objects.all()
+#         context["menu_items"] = MenuItem.objects.all()
+#         context["purchases"] = Purchase.objects.all()
+
+
+@login_required()
+def home(request):
+   context = {"ingredients": Ingredient.objects.all(), "menu_items": MenuItem.objects.all(), "purchases": Purchase.objects.all(),}
+   return render(request, "inventory/home.html", context)
+
+
 
 class IngredientList(ListView):
     model = Ingredient
@@ -68,7 +103,9 @@ class RecipeRequirementDelete(DeleteView):
 
 class RecipeRequirementUpdate(UpdateView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirement_create.html'
+    template_name = 'inventory/recipe_requirement_update.html'
+    form_class = RecipeRequirementUpdateForm
+    success_url = '/inventory/menu_item/list'
 
 
 class RecipeRequirementCreate(CreateView):
@@ -114,15 +151,6 @@ class PurchaseCreate(CreateView):
         return redirect("purchase_list")
 
 
-class HomeView(TemplateView):
-    template_name = "inventory/home.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["ingredients"] = Ingredient.objects.all()
-        context["menu_items"] = MenuItem.objects.all()
-        context["purchases"] = Purchase.objects.all()
-        return context
 
 
 class ReportView(TemplateView):
@@ -146,3 +174,6 @@ class ReportView(TemplateView):
         return context
 
 
+def log_out(request):
+    logout(request)
+    return redirect("/")
