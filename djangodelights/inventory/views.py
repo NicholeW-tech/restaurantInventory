@@ -59,7 +59,7 @@ class IngredientUpdate(UpdateView):
     model = Ingredient
     template_name = 'inventory/ingredient_update_form.html'
     form_class = IngredientForm
-    success_url = '/inventory/ingredient/list'
+    success_url = '/./ingredient/list'
 
 
 class IngredientCreate(CreateView):
@@ -76,12 +76,13 @@ class MenuItemList(ListView):
 class MenuItemDelete(DeleteView):
     model = MenuItem
     template_name = 'inventory/menu_item_delete_form.html'
+    success_url = '/./menu_item/list'
 
 class MenuItemUpdate(UpdateView):
     model = MenuItem
     template_name = 'inventory/menu_item_update_form.html'
     form_class = MenuItemForm
-    success_url = '/inventory/menu_item/list'
+    success_url = '/./menu_item/list'
 
 class MenuItemCreate(CreateView):
     model = MenuItem
@@ -112,7 +113,7 @@ class RecipeRequirementCreate(CreateView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_create.html'
     form_class = RecipeRequirementForm
-    success_url = '/inventory/menu_item/list'
+    success_url = '/./menu_item/list'
 
 
 class PurchaseList(ListView):

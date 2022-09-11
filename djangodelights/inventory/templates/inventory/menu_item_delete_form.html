@@ -1,0 +1,10 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block content %}
+    <h2>Delete Menu Item</h2>
+    <form method="post" class="flex-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete"/>
+    </form>
+{% endblock %}

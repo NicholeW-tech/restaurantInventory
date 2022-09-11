@@ -14,6 +14,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Ingredients</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
                 <li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}</li>
                 {% endfor %}
             </td>
+                <td>
+                    <a href="{% url 'menu_item_delete' menu_item.id%} ">Delete Item in Menu</a><br>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
