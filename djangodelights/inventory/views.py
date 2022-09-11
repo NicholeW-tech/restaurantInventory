@@ -53,6 +53,7 @@ class IngredientList(ListView):
 class IngredientDelete(DeleteView):
     model = Ingredient
     template_name = 'inventory/ingredient_delete_form.html'
+    success_url = '/./ingredient/list'
 
 
 class IngredientUpdate(UpdateView):
@@ -88,8 +89,6 @@ class MenuItemCreate(CreateView):
     model = MenuItem
     template_name = 'inventory/menu_item_create_form.html'
     form_class = MenuItemForm
-
-
 
 
 class RecipeRequirementList(ListView):

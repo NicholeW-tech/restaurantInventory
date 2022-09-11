@@ -14,6 +14,7 @@
                 <th>Quantity</th>
                 <th>Unit</th>
                 <th>Unit Price</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
                 <td>{{ ingredient.quantity }}</td>
                 <td>{{ ingredient.unit }}</td>
                 <td class="price">${{ ingredient.unit_price|stringformat:".2f" }}</td>
+                <td><a href="{% url 'ingredient_delete' ingredient.id %}">Delete</a></td>
             </tr>
         {% endfor %}
         </tbody>
