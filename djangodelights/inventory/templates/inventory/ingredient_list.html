@@ -7,28 +7,16 @@
     <h2>Ingredients</h2>
     <a class='btn btn-success' href="{% url 'ingredient_create' %} ">Add New Ingredient to Inventory</a>
     <hr/>
-    <table class="inventory-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-                <th>Unit Price</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for ingredient in object_list %}
-            <tr>
-                <td>
-                    <a class='btn btn-light' href="{% url 'ingredient_update' ingredient.id %}">{{ ingredient.name }}</a>
-                </td>
-                <td>{{ ingredient.quantity }}</td>
-                <td>{{ ingredient.unit }}</td>
-                <td class="price">${{ ingredient.unit_price|stringformat:".2f" }}</td>
-                <td><a class='btn btn-danger' href="{% url 'ingredient_delete' ingredient.id %}">Delete</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% for ingredient in object_list %}
+    <ol class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold"><a class='btn btn-light' href="{% url 'ingredient_update' ingredient.id %}"><b>{{ ingredient.name }}</b></a></div>
+          Quantity: {{ ingredient.quantity }} {{ ingredient.unit }}<br>
+          Price : ${{ ingredient.unit_price|stringformat:".2f" }}
+        </div>
+        <a class='btn btn-danger' href="{% url 'ingredient_delete' ingredient.id %}">Delete</a>
+    </li>
+    </ol>
+     {% endfor %}
 {% endblock %}

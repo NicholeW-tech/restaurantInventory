@@ -19,6 +19,7 @@ class MenuItem(models.Model):
     title = models.CharField(max_length=200, unique=True)
     price = models.FloatField(default=0.00)
 
+
     def __str__(self):
         return f'title={self.title}; price={self.price}'
 
