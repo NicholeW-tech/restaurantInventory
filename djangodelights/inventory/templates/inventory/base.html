@@ -36,13 +36,15 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'reports' %}">Reports</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link logout btn btn-primary" href="/logout">Logout</a>
+        </li>
 
       </ul>
     </div>
   </div>
 </nav>
       <h1>Hi, {{ user.username }}!</h1>
-      <a class="logout btn btn-primary" href="/logout">Logout</a>
     {% endif %}
 
   </header>
