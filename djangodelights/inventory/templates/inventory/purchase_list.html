@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <h2>Purchases</h2>
-    <a href="{% url 'purchase_create' %}">Record a New Purchase</a>
+    <a class='btn btn-success' href="{% url 'purchase_create' %}">Record a New Purchase</a>
     <hr/>
     <table class="inventory-table">
         <thead>
@@ -23,7 +23,7 @@
                 </td>
                 <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
                 <td>{{ purchase.time_stamp }}</td>
-                <td><a href="{% url 'purchase_delete' purchase.id%}">Delete Purchase</a></td>
+                <td><a class='btn btn-danger' href="{% url 'purchase_delete' purchase.id%}">Delete Purchase</a></td>
             </tr>
         {% endfor %}
         </tbody>
