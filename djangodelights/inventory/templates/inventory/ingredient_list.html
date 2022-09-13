@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <h2>Ingredients</h2>
-    <a href="{% url 'ingredient_create' %} ">Add New Ingredient to Inventory</a>
+    <a class='btn btn-success' href="{% url 'ingredient_create' %} ">Add New Ingredient to Inventory</a>
     <hr/>
     <table class="inventory-table">
         <thead>
@@ -21,7 +21,7 @@
         {% for ingredient in object_list %}
             <tr>
                 <td>
-                    <a href="{% url 'ingredient_update' ingredient.id %}">{{ ingredient.name }}</a>
+                    <a class='btn btn-light' href="{% url 'ingredient_update' ingredient.id %}">{{ ingredient.name }}</a>
                 </td>
                 <td>{{ ingredient.quantity }}</td>
                 <td>{{ ingredient.unit }}</td>

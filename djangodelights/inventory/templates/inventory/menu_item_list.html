@@ -5,8 +5,9 @@
 {% endblock %}
 {% block content %}
     <h2>Menu</h2>
-    <a href="{% url 'menu_item_create' %} ">Add New Item to Menu</a><br>
-    <a href="{% url 'recipe_requirement_create' %}">Add an Ingredient to Existing Menu Item</a>
+    <a class='btn btn-success' href="{% url 'menu_item_create' %} ">Add New Item to Menu</a><br>
+    <br>
+    <a class='btn btn-success' href="{% url 'recipe_requirement_create' %}">Add an Ingredient to Existing Menu Item</a>
     <hr/>
     <table class="inventory-table">
         <thead>
@@ -21,7 +22,7 @@
         {% for menu_item in object_list %}
             <tr>
                 <td>
-                    <a href="{% url 'menu_item_update' menu_item.id %}">{{ menu_item.title }}</a>
+                    <a class='btn btn-light' href="{% url 'menu_item_update' menu_item.id %}">{{ menu_item.title }}</a>
                 </td>
                 <td class="price">${{ menu_item.price|stringformat:".2f" }}</td>
          <td class="menu-item-ingredients">
@@ -30,7 +31,7 @@
                 {% endfor %}
             </td>
                 <td>
-                    <a href="{% url 'menu_item_delete' menu_item.id%} ">Delete Item in Menu</a><br>
+                    <a class='btn btn-danger' href="{% url 'menu_item_delete' menu_item.id%} ">Delete Item in Menu</a><br>
                 </td>
             </tr>
         {% endfor %}
