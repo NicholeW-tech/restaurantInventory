@@ -26,7 +26,7 @@
                 <td>{{ ingredient.quantity }}</td>
                 <td>{{ ingredient.unit }}</td>
                 <td class="price">${{ ingredient.unit_price|stringformat:".2f" }}</td>
-                <td><a href="{% url 'ingredient_delete' ingredient.id %}">Delete</a></td>
+                <td><a class='btn btn-danger' href="{% url 'ingredient_delete' ingredient.id %}">Delete</a></td>
             </tr>
         {% endfor %}
         </tbody>
