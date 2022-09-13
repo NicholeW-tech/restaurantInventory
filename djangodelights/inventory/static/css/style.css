@@ -17,5 +17,9 @@ body {
 }
 
 .list-group-item{
-    background-color:#e7ddc5;
+    background-color:#eee8d7;
+}
+
+.card {
+    background-color:#eee8d7;
 }

@@ -9,10 +9,10 @@
     <br>
     <a class='btn btn-success' href="{% url 'recipe_requirement_create' %}">Add an Ingredient to Existing Menu Item</a>
     <hr/>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
     {% for menu_item in object_list %}
     <div class="card" style="width: 18rem;">
-      <div class="card-body">
+      <div class="card-body border-0">
         <h5 class="card-title"><a class='btn btn-light' href="{% url 'menu_item_update' menu_item.id %}">{{ menu_item.title }}</a></h5>
         <p class="card-text">${{ menu_item.price|stringformat:".2f" }}<br>
             {% for recipe_requirement in menu_item.reciperequirement_set.all %}
@@ -24,32 +24,4 @@
     </div>
     {% endfor %}
     </div>
-<!--    <table class="inventory-table">-->
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>Name</th>-->
-<!--                <th>Price</th>-->
-<!--                <th>Ingredients</th>-->
-<!--                <th>Delete</th>-->
-<!--            </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        {% for menu_item in object_list %}-->
-<!--            <tr>-->
-<!--                <td>-->
-<!--                    <a class='btn btn-light' href="{% url 'menu_item_update' menu_item.id %}">{{ menu_item.title }}</a>-->
-<!--                </td>-->
-<!--                <td class="price">${{ menu_item.price|stringformat:".2f" }}</td>-->
-<!--         <td class="menu-item-ingredients">-->
-<!--                {% for recipe_requirement in menu_item.reciperequirement_set.all %}-->
-<!--                <li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}</li>-->
-<!--                {% endfor %}-->
-<!--            </td>-->
-<!--                <td>-->
-<!--                    <a class='btn btn-danger' href="{% url 'menu_item_delete' menu_item.id%} ">Delete Item in Menu</a><br>-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--        {% endfor %}-->
-<!--        </tbody>-->
-<!--    </table>-->
 {% endblock %}
