@@ -3,6 +3,10 @@
 {% block head %}
 {% endblock %}
 {% block content %}
+<h2 style="text-align: center">Totals</h2>
+    <div style="color: green; text-align: center">Total Revenue: ${{ revenue|stringformat:".2f" }}</div>
+    <div style="color: red; text-align: center">Total Cost: ${{ total_cost|stringformat:".2f" }}</div>
+    <div style="color: blue; text-align: center">Total Profit: ${{ profit|stringformat:".2f" }}</div>
     <h2 style="text-align: center">Purchases</h2>
     <table class="inventory-table">
         <thead>
@@ -23,8 +27,5 @@
         </tbody>
     </table>
     <hr/>
-    <h2>Totals</h2>
-    <div style="color: green;">Total Revenue: ${{ revenue|stringformat:".2f" }}</div>
-    <div style="color: red;">Total Cost: ${{ total_cost|stringformat:".2f" }}</div>
-    <div style="color: blue;">Total Profit: ${{ profit|stringformat:".2f" }}</div>
+
 {% endblock %}
