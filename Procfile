@@ -1,1 +1,1 @@
-web: gunicorn djangodelights.wsgi
+web: gunicorn djangodelights.djangodelights.wsgi
