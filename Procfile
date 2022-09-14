@@ -1,1 +1,1 @@
-web: gunicorn djangodelights.djangodelights.wsgi
+web: gunicorn --chdir djangodelights djangodelights.wsgi
