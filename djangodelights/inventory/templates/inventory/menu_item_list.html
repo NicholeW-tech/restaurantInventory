@@ -13,7 +13,7 @@
     {% for menu_item in object_list %}
     <div class="card" style="width: 18rem;">
       <div class="card-body border-0">
-        <h5 class="card-title"><a class='btn btn-light' href="{% url 'recipe_requirement_update' menu_item.id %}">{{ menu_item.title }}</a></h5>
+        <h5 class="card-title"><a class='btn btn-light' href="{% url 'menu_item_update' menu_item.id %}">{{ menu_item.title }}</a></h5>
         <p class="card-text">${{ menu_item.price|stringformat:".2f" }}<br>
             {% for recipe_requirement in menu_item.reciperequirement_set.all %}
                     <li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}</li>

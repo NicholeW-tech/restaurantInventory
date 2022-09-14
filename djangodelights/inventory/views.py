@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-from .forms import IngredientForm, MenuItemForm, PurchaseForm, RecipeRequirementForm, RecipeRequirementUpdateForm
+from .forms import IngredientForm, MenuItemForm, PurchaseForm, RecipeRequirementForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.db.models import Sum
@@ -100,8 +100,8 @@ class RecipeRequirementDelete(DeleteView):
 
 class RecipeRequirementUpdate(UpdateView):
     model = RecipeRequirement
-    template_name = 'inventory/recipe_requirement_update.html'
-    form_class = RecipeRequirementUpdateForm
+    template_name = 'inventory/recipe_requirement_update_form.html'
+    form_class = RecipeRequirementForm
     success_url = '/./menu_item/list'
 
 
