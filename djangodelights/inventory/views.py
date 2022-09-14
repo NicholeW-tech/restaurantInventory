@@ -102,7 +102,7 @@ class RecipeRequirementUpdate(UpdateView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_update.html'
     form_class = RecipeRequirementUpdateForm
-    success_url = '/inventory/menu_item/list'
+    success_url = '/./menu_item/list'
 
 
 class RecipeRequirementCreate(CreateView):
@@ -120,7 +120,7 @@ class PurchaseList(ListView):
 class PurchaseDelete(DeleteView):
     model = Purchase
     template_name = 'inventory/purchase_delete.html'
-    success_url = '/inventory/purchase/list'
+    success_url = '/./purchase/list'
 
 class PurchaseUpdate(UpdateView):
     model = Purchase
@@ -132,6 +132,11 @@ class PurchaseCreate(CreateView):
     model = Purchase
     template_name = 'inventory/purchase_create.html'
     form_class = PurchaseForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["menu_items"] = [X for X in MenuItem.objects.all() if X.available()]
+        return context
 
     def post(self, request):
         menu_item_id = request.POST["menu_item"]
@@ -146,7 +151,6 @@ class PurchaseCreate(CreateView):
 
         purchase.save()
         return redirect("purchase_list")
-
 
 
 

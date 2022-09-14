@@ -26,6 +26,10 @@ class MenuItem(models.Model):
     def get_absolute_url(self):
         return './list'
 
+    def available(self):
+        return all(X.enough() for X in self.reciperequirement_set.all())
+
+
 class RecipeRequirement(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
@@ -34,9 +38,18 @@ class RecipeRequirement(models.Model):
     def __str__(self):
         return f'menu item={self.menu_item.__str__()}; ingredient={self.ingredient}; quantity={self.quantity};'
 
+    def enough(self):
+        return self.quantity <= self.ingredient.quantity
+
+
+
+
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     time_stamp = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return './list'
 
     def __str__(self):
         return f'menu item={self.menu_item.__str__()}; timestamp={self.time_stamp};'
