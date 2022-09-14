@@ -13,15 +13,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import django_heroku
-django_heroku.settings(locals())
 
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-IS_HEROKU = "DYNO" in os.environ
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -31,11 +29,7 @@ SECRET_KEY = os.getenv('D_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-if IS_HEROKU:
-    ALLOWED_HOSTS = ["*"]
-else:
-    ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -138,3 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+print(BASE_DIR)
