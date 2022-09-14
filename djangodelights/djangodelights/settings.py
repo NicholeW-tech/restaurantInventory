@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('D_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['restaurantinventory-management.herokuapp.com']
 
 
 # Application definition
