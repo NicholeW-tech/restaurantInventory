@@ -61,7 +61,7 @@ coverage.xml
 local_settings.py
 djangodelights/db.sqlite3
 db.sqlite3-journal
-media
+
 *.pyc
 __pycache__
 
