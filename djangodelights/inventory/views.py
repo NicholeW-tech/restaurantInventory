@@ -42,93 +42,93 @@ def home(request):
 
 
 
-class IngredientList(ListView):
+class IngredientList(LoginRequiredMixin, ListView):
     model = Ingredient
     template_name = './ingredient_list.html'
 
 
-class IngredientDelete(DeleteView):
+class IngredientDelete(LoginRequiredMixin, DeleteView):
     model = Ingredient
     template_name = 'inventory/ingredient_delete_form.html'
     success_url = '/./ingredient/list'
 
 
-class IngredientUpdate(UpdateView):
+class IngredientUpdate(LoginRequiredMixin, UpdateView):
     model = Ingredient
     template_name = 'inventory/ingredient_update_form.html'
     form_class = IngredientForm
     success_url = '/./ingredient/list'
 
 
-class IngredientCreate(CreateView):
+class IngredientCreate(LoginRequiredMixin, CreateView):
     model = Ingredient
     template_name = 'inventory/ingredient_create_form.html'
     form_class = IngredientForm
 
 
-class MenuItemList(ListView):
+class MenuItemList(LoginRequiredMixin, ListView):
     model = MenuItem
     template_name = 'inventory/menu_item_list.html'
 
 
-class MenuItemDelete(DeleteView):
+class MenuItemDelete(LoginRequiredMixin, DeleteView):
     model = MenuItem
     template_name = 'inventory/menu_item_delete_form.html'
     success_url = '/./menu_item/list'
 
-class MenuItemUpdate(UpdateView):
+class MenuItemUpdate(LoginRequiredMixin, UpdateView):
     model = MenuItem
     template_name = 'inventory/menu_item_update_form.html'
     form_class = MenuItemForm
     success_url = '/./menu_item/list'
 
-class MenuItemCreate(CreateView):
+class MenuItemCreate(LoginRequiredMixin, CreateView):
     model = MenuItem
     template_name = 'inventory/menu_item_create_form.html'
     form_class = MenuItemForm
 
 
-class RecipeRequirementList(ListView):
+class RecipeRequirementList(LoginRequiredMixin, ListView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_list.html'
 
 
-class RecipeRequirementDelete(DeleteView):
+class RecipeRequirementDelete(LoginRequiredMixin, DeleteView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_delete.html'
 
 
-class RecipeRequirementUpdate(UpdateView):
+class RecipeRequirementUpdate(LoginRequiredMixin, UpdateView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_update_form.html'
     form_class = RecipeRequirementForm
     success_url = '/./menu_item/list'
 
 
-class RecipeRequirementCreate(CreateView):
+class RecipeRequirementCreate(LoginRequiredMixin, CreateView):
     model = RecipeRequirement
     template_name = 'inventory/recipe_requirement_create.html'
     form_class = RecipeRequirementForm
     success_url = '/./menu_item/list'
 
 
-class PurchaseList(ListView):
+class PurchaseList(LoginRequiredMixin, ListView):
     model = Purchase
     template_name = 'inventory/purchase_view.html'
 
 
-class PurchaseDelete(DeleteView):
+class PurchaseDelete(LoginRequiredMixin, DeleteView):
     model = Purchase
     template_name = 'inventory/purchase_delete.html'
     success_url = '/./purchase/list'
 
-class PurchaseUpdate(UpdateView):
+class PurchaseUpdate(LoginRequiredMixin, UpdateView):
     model = Purchase
     template_name = 'inventory/purchase_update.html'
     fields = ['menu_item', 'time_stamp']
 
 
-class PurchaseCreate(CreateView):
+class PurchaseCreate(LoginRequiredMixin, CreateView):
     model = Purchase
     template_name = 'inventory/purchase_create.html'
     form_class = PurchaseForm
@@ -154,7 +154,7 @@ class PurchaseCreate(CreateView):
 
 
 
-class ReportView(TemplateView):
+class ReportView(LoginRequiredMixin, TemplateView):
     template_name = "inventory/reports.html"
 
     def get_context_data(self, **kwargs):
