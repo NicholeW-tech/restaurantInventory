@@ -16,7 +16,7 @@ def logout_view(request):
   logout(request)
   return redirect('home')
 
-
+@login_required()
 def login_view(request):
   context = {
     "login_view": "active"
