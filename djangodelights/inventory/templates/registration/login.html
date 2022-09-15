@@ -2,8 +2,13 @@
 {% load static %}
 {% block title %}Django Delights{% endblock %}
 {% block content %}
-	<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+	<section class="spotlight style1 orient-right content-align-center image-position-center onscroll-image-fade-in" id="first">
 						<div class="content">
+							<section>
+								<h3>Welcome to Django Delights Restraurant Inventory Manager</h3>
+
+								</section>
+								<section>
 							<h2>Login</h2>
 							<form method="post">
                               {% csrf_token %}
@@ -16,10 +21,6 @@
                             </table>
                           </form>
 						</div>
-						<section>
-									<h3>Welcome to Django Delights Restraurant Inventory Manager</h3>
-									
-								</section>
-								<section>
+
 					</section>
 {% endblock %}
