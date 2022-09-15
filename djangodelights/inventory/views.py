@@ -16,7 +16,7 @@ def logout_view(request):
   logout(request)
   return redirect('home')
 
-@login_required()
+
 def login_view(request):
   context = {
     "login_view": "active"
@@ -35,7 +35,7 @@ def login_view(request):
 
 
 
-
+@login_required()
 def home(request):
    context = {"ingredients": Ingredient.objects.all(), "menu_items": MenuItem.objects.all(), "purchases": Purchase.objects.all(),}
    return render(request, "inventory/home.html", context)
