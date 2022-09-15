@@ -35,7 +35,7 @@ def login_view(request):
 
 
 
-@login_required()
+
 def home(request):
    context = {"ingredients": Ingredient.objects.all(), "menu_items": MenuItem.objects.all(), "purchases": Purchase.objects.all(),}
    return render(request, "inventory/home.html", context)

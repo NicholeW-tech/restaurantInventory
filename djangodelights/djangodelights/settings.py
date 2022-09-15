@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('D_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['restaurantinventory-management.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -133,4 +133,5 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-print(BASE_DIR)
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
