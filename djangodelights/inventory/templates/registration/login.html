@@ -1,15 +1,23 @@
-{% block title %}Login{% endblock %}
-
+{% extends 'inventory/base.html' %}
+{% load static %}
+{% block title %}Django Delights{% endblock %}
 {% block content %}
-  <h2>Login</h2>
-    <form method="post">
-      {% csrf_token %}
-      <table>
-        {{ form.as_p }}
-        <tr>
-          <td>&nbsp;</td>
-          <td><input type="submit" value="Submit"></td>
-        </tr>
-      </table>
-    </form>
+	<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+						<div class="content">
+							<h2>Login</h2>
+							<form method="post">
+                              {% csrf_token %}
+                            <table>
+                              {{ form.as_p }}
+                              <tr>
+                                <td>&nbsp;</td>
+                                <td><input type="submit" value="Submit"></td>
+                              </tr>
+                            </table>
+                          </form>
+						</div>
+						<div class="image">
+							<img src="images/spotlight01.jpg" alt="" />
+						</div>
+					</section>
 {% endblock %}
