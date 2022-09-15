@@ -7,16 +7,5 @@
     <h2 style="text-align: center">Ingredients</h2>
     <a class='btn btn-success' href="{% url 'ingredient_create' %} ">Add New Ingredient to Inventory</a>
     <hr/>
-<!--    {% for ingredient in object_list %}-->
-<!--    <ol class="list-group">-->
-<!--    <li class="list-group-item d-flex justify-content-between align-items-start">-->
-<!--        <div class="ms-2 me-auto">-->
-<!--          <div class="fw-bold"><a class='btn btn-light' href="{% url 'ingredient_update' ingredient.id %}"><b>{{ ingredient.name }}</b></a></div>-->
-<!--          Price : ${{ ingredient.unit_price|stringformat:".2f" }}<br>-->
-<!--          Quantity: {{ ingredient.quantity }} {{ ingredient.unit }}<br>-->
-<!--        </div>-->
-<!--        <a class='btn btn-danger' href="{% url 'ingredient_delete' ingredient.id %}">Delete</a>-->
-<!--    </li>-->
-<!--    </ol>-->
-<!--     {% endfor %}-->
+
 {% endblock %}
