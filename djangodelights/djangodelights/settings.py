@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 # #In order for page to start on home page must start on Apps urls not root directory urls
-# ROOT_URLCONF = 'inventory.urls'
+ROOT_URLCONF = 'inventory.urls'
 
 TEMPLATES = [
     {
