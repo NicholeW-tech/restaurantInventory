@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
+path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls"), name="login"),
     path("", views.home, name="home"),
     path("logout/", views.logout_view, name="logout"),
@@ -25,6 +26,6 @@ urlpatterns = [
     path('purchase/update/<pk>', views.PurchaseUpdate.as_view(), name='purchase_update'),
     path('purchase/create', views.PurchaseCreate.as_view(), name='purchase_create'),
     path('reports', views.ReportView.as_view(), name='reports'),
-    path('admin/', admin.site.urls)
+
 
 ]
