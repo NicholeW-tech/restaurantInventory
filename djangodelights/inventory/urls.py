@@ -1,4 +1,5 @@
 from django.urls import path, include
+from django.contrib import admin
 
 from django.contrib.auth import views as auth_views
 from . import views
@@ -24,5 +25,6 @@ urlpatterns = [
     path('purchase/update/<pk>', views.PurchaseUpdate.as_view(), name='purchase_update'),
     path('purchase/create', views.PurchaseCreate.as_view(), name='purchase_create'),
     path('reports', views.ReportView.as_view(), name='reports'),
+    path('admin/', admin.site.urls)
 
 ]
