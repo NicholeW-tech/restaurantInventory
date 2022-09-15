@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('D_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['restaurantinventory-management.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -138,3 +138,6 @@ LOGOUT_REDIRECT_URL = 'login'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+import django_heroku
+django_heroku.settings(locals())

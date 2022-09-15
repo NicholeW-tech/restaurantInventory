@@ -20,3 +20,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+#
+# web: gunicorn --chdir djangodelights djangodelights.wsgi --log-file -
+# python manage.py collectstatic --noinput
+# manage.py migrate
