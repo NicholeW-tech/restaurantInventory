@@ -1,3 +1,4 @@
-web: python manage.py runserver 0.0.0.0:4000
+web: gunicorn --chdir djangodelights djangodelights.wsgi
 release: python djangodelights/manage.py migrate
 heroku ps:scale web=1
+
