@@ -47,8 +47,5 @@ View Purchases.
 View Reports
 </ul>
 
-<br>
-<h4>Try a live version here:</h4>
-Username: restaurantManager<br>
-Password: djangotest<br>
-<a href="https://restaurantinventory-management.herokuapp.com/">Heroku link</a>
+
+
